@@ -182,3 +182,34 @@ svg {
 .fs-600{
   font-size: var(--fs-600);
 }
+
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+  /* Choose the minimum of --max-width and 100% */
+  width: min(var(--max-width), 100% - (var(--padding) * 2 ));
+  /* Centers it */
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+/* em's because it is the only measurement that is consistent across different browsers when zooming in and out. */
+/* Also when used in media queries it and rem do not look at root font size, looks at default browser setting. */
+@media(min-width: 50em) {
+  .even-columns{
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+/* General styling */
+
+body{
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+}
